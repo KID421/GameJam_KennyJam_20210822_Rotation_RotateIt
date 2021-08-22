@@ -24,10 +24,15 @@ public class SceneController : MonoBehaviour
     #region ¨Æ¥ó
     private void Start()
     {
+        Player.rotationObjectCount = 3;
+        Player.life = 3;
+
         for (int i = 0; i < btnsLevel.Length; i++)
         {
             int btnIndex = i + 1;
             btnsLevel[i].onClick.AddListener(() => { LoadScene(btnIndex); });
+
+            if (i < level) btnsLevel[i].interactable = true;
         }
     }
     #endregion
